@@ -2,7 +2,7 @@
 
 # echo "password: $2"
 git checkout master
-BRANCH=master
+BRANCH=main
 if [ ! -z "$1" ]; then
     echo "pull branch: $1"
     BRANCH=$1

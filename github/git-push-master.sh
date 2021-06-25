@@ -4,10 +4,10 @@ git config --global user.name "DiaboloKiat"
 git config --global user.email "DiaboloKiat@gmail.com"
 
 git status
-git checkout master
+git checkout main
 echo "Enter your message"
 read message
-BRANCH=master
+BRANCH=main
 
 
 # push main
@@ -17,4 +17,4 @@ echo "--------------------------------------------------------------------------
 cd ~/hand-gesture-recognition-using-mediapipe/
 git add -A
 git commit -m "${message}"
-git push origin master
+git push

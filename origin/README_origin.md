@@ -1,5 +1,5 @@
 Now on the Origin Author readme
-[**Origin Author readme**/[Kiat readme]()]
+[**Origin Author readme**/[Kiat readme](https://github.com/DiaboloKiat/hand-gesture-recognition-using-mediapipe/blob/main/README.md)]
 
 # hand-gesture-recognition-using-mediapipe
 Estimate hand pose using MediaPipe(Python version).<br> This is a sample program that recognizes hand signs and finger gestures with a simple MLP using the detected key points.

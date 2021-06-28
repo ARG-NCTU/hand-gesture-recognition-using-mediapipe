@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <!--detect-->
+    <node name="hand_gesture_node" pkg="hand_gesture" type="hand_gesture.py" required="true" output="screen"/>
+</launch>

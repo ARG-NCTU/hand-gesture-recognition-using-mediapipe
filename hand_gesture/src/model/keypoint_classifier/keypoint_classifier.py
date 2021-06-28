@@ -7,7 +7,7 @@ import tensorflow as tf
 class KeyPointClassifier(object):
     def __init__(
         self,
-        model_path='/home/seadrone/seadrone-project/catkin_ws/src/object_detection/src/model/keypoint_classifier/keypoint_classifier.tflite',
+        model_path='/home/diabolokiat/project_seadrone/catkin_ws/src/hand-gesture-recognition-using-mediapipe/hand_gesture/src/model/keypoint_classifier/keypoint_classifier.tflite',
         num_threads=1,
     ):
         self.interpreter = tf.lite.Interpreter(model_path=model_path)

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <!--detect-->
+    <node name="mediapipe_node" pkg="hand_gesture" type="cam_hand.py" required="true" output="screen"/>
+</launch>

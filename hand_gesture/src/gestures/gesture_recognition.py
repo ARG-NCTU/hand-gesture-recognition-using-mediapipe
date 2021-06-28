@@ -41,7 +41,7 @@ class GestureRecognition:
         keypoint_classifier = KeyPointClassifier()
 
         # Read labels ###########################################################
-        with open('/home/diabolokiat/hand-gesture-recognition-using-mediapipe/hand_gesture/src/model/keypoint_classifier/keypoint_classifier_label.csv', encoding='utf-8-sig') as f:
+        with open('/home/diabolokiat/project_seadrone/catkin_ws/src/hand-gesture-recognition-using-mediapipe/hand_gesture/src/model/keypoint_classifier/keypoint_classifier_label.csv', encoding='utf-8-sig') as f:
             keypoint_classifier_labels = csv.reader(f)
             keypoint_classifier_labels = [row[0] for row in keypoint_classifier_labels]
 
@@ -127,7 +127,7 @@ class GestureRecognition:
             pass
         if mode == 1 and (0 <= number <= 9):
             print("WRITE")
-            csv_path = '/home/seadrone/seadrone-project/catkin_ws/src/object_detection/src/model/keypoint_classifier/keypoint_new.csv'
+            csv_path = '/home/diabolokiat/project_seadrone/catkin_ws/src/hand-gesture-recognition-using-mediapipe/hand_gesture/src/model/keypoint_classifier/keypoint_new.csv'
             with open(csv_path, 'a', newline="") as f:
                 writer = csv.writer(f)
                 writer.writerow([number, *landmark_list])

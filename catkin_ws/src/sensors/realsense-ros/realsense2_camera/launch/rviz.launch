@@ -1,6 +1,0 @@
-
-
-<launch>
-    <!--rviz-->
-    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find realsense2_camera)/rviz/D435.rviz"/>
-</launch>

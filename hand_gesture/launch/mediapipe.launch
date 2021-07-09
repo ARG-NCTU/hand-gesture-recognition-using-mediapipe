@@ -1,5 +1,17 @@
 <?xml version="1.0"?>
 <launch>
-    <!--detect-->
-    <node name="mediapipe_node" pkg="hand_gesture" type="cam_hand.py" required="true" output="screen"/>
+    <arg name="seadrone" default="true"/>
+    <arg name="veh" default="seadrone"/>
+
+    <group ns="$(arg veh)">
+        <group if="$(arg seadrone)">
+            <!--seadrone detect-->
+            <node name="mediapipe_seadrone_node" pkg="hand_gesture" type="cam_hand.py" output="screen"/>
+        </group>
+
+        <group unless="$(arg seadrone)">
+            <!--D435 detect-->
+            <node name="mediapipe_d435_node" pkg="hand_gesture" type="d435_hand.py" output="screen"/>
+        </group>
+    </group>
 </launch>

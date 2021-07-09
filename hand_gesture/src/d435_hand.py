@@ -35,7 +35,7 @@ class Detection(object):
 
         # ROS Publisher & Subscriber
         self.sub_img = message_filters.Subscriber('/camera/color/image_raw', Image)
-        self.pub_img = rospy.Publisher('/camera/hand_detectec/image_raw', Image, queue_size = 10)
+        self.pub_img = rospy.Publisher('/camera/hand_detectec/image_raw', Image, queue_size = 1)
 
         rospy.loginfo('Detection node ready.')
 
@@ -49,7 +49,6 @@ class Detection(object):
             print(e)
 
         fps = self.cv_fps_calc.get()
-
 
         # Flip the image horizontally for a later selfie-view display, and convert
         # the BGR image to RGB.
@@ -67,9 +66,9 @@ class Detection(object):
             for hand_landmarks in results.multi_hand_landmarks:
                 self.mp_drawing.draw_landmarks(image, hand_landmarks, self.mp_hands.HAND_CONNECTIONS)
 
-        # Battery status and image rendering
-        cv2.putText(image, "fps:{}".format(fps), (5, 720 - 5), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-        self.pub_img.publish(self.bridge.cv2_to_imgmsg(image, "bgr8"))
+        # image size 640*480
+        cv2.putText(image, "fps:{}".format(fps), (15, 470), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        self.pub_img.publish(self.bridge.cv2_to_imgmsg(image, "8UC3"))
         cv2.imshow('hand_pose_d435', image)
         cv2.waitKey(3)
 

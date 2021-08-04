@@ -11,11 +11,11 @@
 
 <h1 align="center"> Hand Gesture Recognition Using Mediapipe </h1>
 
+## Hand pose landmarks
+<h4 align="center"> <img src="https://github.com/DiaboloKiat/hand-gesture-recognition-using-mediapipe/blob/main/images/hand_landmarks.png"/> </h4>
 
-
-
-
-
+## Human pose full body landmarks
+<h4 align="center"> <img src="https://github.com/DiaboloKiat/hand-gesture-recognition-using-mediapipe/blob/main/images/pose_tracking_full_body_landmarks.png"/> </h4>
 
 
 

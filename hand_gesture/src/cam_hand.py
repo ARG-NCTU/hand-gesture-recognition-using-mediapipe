@@ -22,12 +22,12 @@ def image():
     mp_hands = mp.solutions.hands
 
     # For webcam input:
-    hands = mp_hands.Hands(static_image_mode=True, max_num_hands=2, min_detection_confidence = 0.7, min_tracking_confidence = 0.7)
+    hands = mp_hands.Hands(static_image_mode=False, max_num_hands=2, min_detection_confidence = 0.7, min_tracking_confidence = 0.7)
 
     # FPS Measurement
     cv_fps_calc = CvFpsCalc(buffer_len=5)
 
-    pub_hand = rospy.Publisher('/mediapipe/image', Image, queue_size = 10)
+    pub_hand = rospy.Publisher('/seadrone/camera/mediapipe/image_raw', Image, queue_size = 10)
 
     cap = cv2.VideoCapture('http://192.168.0.122:8090/?action=stream')
     rate = rospy.Rate(1000) # 1000hz

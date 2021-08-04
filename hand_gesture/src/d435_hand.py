@@ -28,14 +28,14 @@ class Detection(object):
         self.mp_hands = mp.solutions.hands
 
         # For webcam input:
-        self.hands = self.mp_hands.Hands(static_image_mode=True, max_num_hands=2, min_detection_confidence = 0.7, min_tracking_confidence = 0.7)
+        self.hands = self.mp_hands.Hands(static_image_mode=False, max_num_hands=2, min_detection_confidence = 0.7, min_tracking_confidence = 0.7)
 
         # FPS Measurement
         self.cv_fps_calc = CvFpsCalc(buffer_len=5)
 
         # ROS Publisher & Subscriber
-        self.sub_img = message_filters.Subscriber('/camera/color/image_raw', Image)
-        self.pub_img = rospy.Publisher('/camera/hand_detectec/image_raw', Image, queue_size = 1)
+        self.sub_img = message_filters.Subscriber('/seadrone/camera/color/image_raw', Image)
+        self.pub_img = rospy.Publisher('/seadrone/camera/mediapipe/image_raw', Image, queue_size = 1)
 
         rospy.loginfo('Detection node ready.')
 
@@ -64,6 +64,13 @@ class Detection(object):
         image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
         if results.multi_hand_landmarks:
             for hand_landmarks in results.multi_hand_landmarks:
+                for id, lm in enumerate(hand_landmarks.landmark):
+                    h, w, c = image.shape
+                    cx, cy = int(lm.x * w), int(lm.y *h)
+                    print(id, cx, cy)
+                    if id == 4 or id == 8 or id == 12 or id == 16 or id == 20:
+                        cv2.circle(image, (cx, cy), 5, (255, 0, 0), cv2.FILLED)
+
                 self.mp_drawing.draw_landmarks(image, hand_landmarks, self.mp_hands.HAND_CONNECTIONS)
 
         # image size 640*480

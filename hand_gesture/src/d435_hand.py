@@ -83,7 +83,7 @@ class Detection(object):
         rospy.loginfo("Node shutdown")
 
 if __name__ == "__main__":
-    rospy.init_node("d435_hand_gesture_node", anonymous=False)
+    rospy.init_node("d435_hand_pose_node", anonymous=False)
     node = Detection()
     cv2.destroyAllWindows()
     rospy.on_shutdown(node.shutdown_cb)

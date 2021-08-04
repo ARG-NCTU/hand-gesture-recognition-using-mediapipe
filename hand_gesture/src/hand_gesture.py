@@ -34,7 +34,7 @@ def Hand_gesture():
 
     gesture_detector = GestureRecognition(min_detection_confidence=0.7, min_tracking_confidence=0.5)
     gesture_buffer = GestureBuffer(buffer_len=5)
-    global gseture_id
+    global gesture_id
 
     mode = 0
     number = -1

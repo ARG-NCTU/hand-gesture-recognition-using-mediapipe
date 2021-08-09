@@ -11,15 +11,17 @@
 
 <h1 align="center"> Hand Gesture Recognition Using Mediapipe </h1>
 
+## How to run
+- Run mediapipe hand pose landmarks (camera: D435)
+```
+$ roslaunch hand_gesture mediapipe.launch seadrone_cameara:=false
+```
+
+- Run hand gesture dataset (camera: D435)
+```
+$ roslaunch hand_gesture hand_gesture.launch seadrone_cameara:=false
+```
+
 ## Hand pose landmarks
 <h4 align="center"> <img src="https://github.com/DiaboloKiat/hand-gesture-recognition-using-mediapipe/blob/main/images/hand_landmarks.png"/> </h4>
-
-## Human pose full body landmarks
-<h4 align="center"> <img src="https://github.com/DiaboloKiat/hand-gesture-recognition-using-mediapipe/blob/main/images/pose_tracking_full_body_landmarks.png"/> </h4>
-
-
-
-
-
-
 
